@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>KJRI Fleet Management System | Input Car</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css" type="text/css" />
+    <link rel="stylesheet" href="style/jquery-ui.css" type="text/css" />
+	<script type="text/javascript" src="script/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="script/jquery-ui.js"></script>
+ 
+	<script type="text/javascript">
+		function cekAlert(msg)
+		{
+			if(msg == '1')
+				alert("New car has been added successfully.");
+			else if(msg == '2')
+				alert("Allowed file extensions: .gif, .jpeg, .jpg, .png");
+			else if(msg == '3')
+				alert("Max. file size: 1 MB!");
+			else if(msg == '4')
+				alert("All field must be filled!");
+		}	
+	
+		$(function() {
+			$("#txtRegoExp").datepicker({
+				changeMonth: true,
+				changeYear: true,
+				dateFormat: "dd-mm-yy"
+			});
+			$("#txtServis").datepicker({
+				changeMonth: true,
+				changeYear: true,
+				dateFormat: "dd-mm-yy"
+			});
+		});
+    </script>
+    
+</head>
+
+<body class="body" onLoad="cekAlert(0)">
+
+		<header class="main-header">
+    	<h1><a href="home.html">kjri sydney</a></h1>
+		<div class="title-description">Fleet Management System</div>
+        
+        <nav class="admin">
+        <ul>
+        	<li ><a href="home.html">Home</a></li>
+            <li ><a href="car-used.html">In Use</a></li>
+			        	<li class='active'><a href="input-car.html">Input Car</a></li>
+             <li ><a href="list-user.html">Manage User</a></li>
+             <li ><a href="create-user.html">Create User</a></li>
+           	 <li ><a href="report.html">Report</a></li>
+                    <li><a href="logout.html">Logout</a></li>
+        </ul>
+        </nav>
+    </header>    
+    <section class="main-content">
+    	<header class="page-title">
+        	<h2>Input New Car</h2>
+        </header>
+        <section class="content">
+        	
+            <form name="formInputMobil" action="process/do-input-car.php" method="post" enctype="multipart/form-data">
+            <table class="table-input" align="center">
+              <tr>
+                <td>No. Polisi <font color="#FF0000">*</font></td>
+                <td><input type="text" name="txtNoPolisi" id="txtNoPolisi"></td>
+              </tr>
+              <tr>
+                <td>Nama Mobil <font color="#FF0000">*</font></td>
+                <td><input type="text" name="txtJenis" id="txtJenis"></td>
+              </tr>
+              <tr>
+                <td>Warna Mobil <font color="#FF0000">*</font></td>
+                <td><input type="text" name="txtWarna" id="txtWarna"></td>
+              </tr>
+              <tr>
+                <td>Foto Mobil <font color="#FF0000">*</font></td>
+                <td><input type="file" name="fileImg" id="fileImg"></td>
+              </tr>
+              <tr>
+                <td>Tahun Pembelian <font color="#FF0000">*</font></td>
+                <td><select name="listTahun" id="listTahun">
+                <br />
+<b>Warning</b>:  date(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected the timezone 'UTC' for now, but please set date.timezone to select your timezone. in <b>/home/kjrisydn/public_html/fleet/input-car.php</b> on line <b>87</b><br />
+                  <option value="2000">2000</option>
+                                  <option value="2001">2001</option>
+                                  <option value="2002">2002</option>
+                                  <option value="2003">2003</option>
+                                  <option value="2004">2004</option>
+                                  <option value="2005">2005</option>
+                                  <option value="2006">2006</option>
+                                  <option value="2007">2007</option>
+                                  <option value="2008">2008</option>
+                                  <option value="2009">2009</option>
+                                  <option value="2010">2010</option>
+                                  <option value="2011">2011</option>
+                                  <option value="2012">2012</option>
+                                  <option value="2013">2013</option>
+                                  <option value="2014">2014</option>
+                                  <option value="2015">2015</option>
+                                  <option value="2016">2016</option>
+                                  <option value="2017">2017</option>
+                                  <option value="2018">2018</option>
+                                </select></td>
+              </tr>
+              <tr>
+                <td>No. VIN <font color="#FF0000">*</font></td>
+                <td><input type="text" name="txtRego" id="txtRego"></td>
+              </tr>
+              <tr>
+                <td>Masa Berlaku Rego <font color="#FF0000">*</font></td>
+                <td><input type="text" name="txtRegoExp" id="txtRegoExp"></td>
+              </tr>
+              <tr>
+                <td>Jatuh Tempo Servis <font color="#FF0000">*</font></td>
+                <td><input type="text" name="txtServis" id="txtServis"></td>
+              </tr>
+              <tr>
+                <td>Keterangan <font color="#FF0000">*</font></td>
+                <td><textarea name="txtKeterangan" id="txtKeterangan"></textarea></td>
+              </tr>
+              <tr>
+                <td colspan="2" class="merge"><input type="submit" name="btnInput" id="btnInput" value="Submit" width="30px">
+                </td>
+              </tr>
+              </table>
+              </form>
+        </section>
+    </section>
+
+		<footer class="footer">
+    	Copyright &copy; 2014 KJRI Sydney
+    </footer>    
+</body>
+</html>

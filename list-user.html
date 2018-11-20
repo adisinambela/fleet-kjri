@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>KJRI Fleet Management System | Manage User</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css" type="text/css" />
+    <script type="text/javascript" src="script/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+	
+	function cekAlert(msg)
+	{
+		if(msg == '1')
+			alert("User berhasil dihapus.");
+		else if(msg == '2')
+			alert("User gagal dihapus.");
+	}
+	
+	 $(function() {
+	
+	/*
+		$('#check-out').click(function(){
+			alert('Thanks for returning the car.');	
+		});
+	*/
+		$('.popup').click(function(event) {
+			event.preventDefault();
+			window.open($(this).attr("href"), "popupWindow", "width=320,height=350,scrollbars=yes");
+		});
+		
+		$('.delete-user').click(function(event) {
+			var url = "process/do-delete-user.php?uid=" + $(this).attr("href");
+			var c = confirm("Apakah anda yakin?");
+			
+			event.preventDefault();
+			if(c == true)
+			{
+				window.location.href = url;
+			}
+
+		});
+		
+	 });
+	
+	</script>
+    
+</head>
+
+<body class="body" onLoad="cekAlert(0)">
+
+		<header class="main-header">
+    	<h1><a href="home.php">kjri sydney</a></h1>
+		<div class="title-description">Fleet Management System</div>
+        
+        <nav class="admin">
+        <ul>
+        	<li ><a href="home.html">Home</a></li>
+            <li ><a href="car-used.html">In Use</a></li>
+			        	<li ><a href="input-car.html">Input Car</a></li>
+             <li class='active'><a href="list-user.html">Manage User</a></li>
+             <li ><a href="create-user.html">Create User</a></li>
+           	 <li ><a href="report.html">Report</a></li>
+                    <li><a href="logout.html">Logout</a></li>
+        </ul>
+        </nav>
+    </header>    
+    <section class="main-content">
+    	<header class="page-title">
+        	<h2>Manage User</h2>
+        </header>
+        <section class="content">
+        	<section class="container">
+                <table class="table-user" align="center">
+                  <tr>
+                    <th>No</th>
+                    <th>Username</th>
+                    <th>Nama</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Last Login</th>
+                    <th>Aksi</th>
+                  </tr>
+                                    <tr>
+                    <td>1</td>
+                    <td class="merge"><a href="user-detail.php?uid=1">admin</a></td>
+                    <td>admin</td>
+                    <td>admin</td>
+                    <td>Active</td>
+                    <td>21 Nov 2018 08:50 AM</td>
+                    <td><a href="1" class="delete-user">Delete</a></td>
+                  </tr>
+                                    <tr>
+                    <td>2</td>
+                    <td class="merge"><a href="user-detail.php?uid=6">dmitrips</a></td>
+                    <td>Dmitri P. Sinambela</td>
+                    <td>admin</td>
+                    <td>Active</td>
+                    <td>14 Nov 2018 01:37 PM</td>
+                    <td><a href="6" class="delete-user">Delete</a></td>
+                  </tr>
+                                    <tr>
+                    <td>3</td>
+                    <td class="merge"><a href="user-detail.php?uid=7">akbar</a></td>
+                    <td>Akbar Makarti</td>
+                    <td>admin</td>
+                    <td>Active</td>
+                    <td>08 Nov 2015 07:39 AM</td>
+                    <td><a href="7" class="delete-user">Delete</a></td>
+                  </tr>
+                                    <tr>
+                    <td>4</td>
+                    <td class="merge"><a href="user-detail.php?uid=8">charles89</a></td>
+                    <td>Charles M. Sihombing</td>
+                    <td>driver</td>
+                    <td>Active</td>
+                    <td>19 Jan 2015 04:37 PM</td>
+                    <td><a href="8" class="delete-user">Delete</a></td>
+                  </tr>
+                                    <tr>
+                    <td>5</td>
+                    <td class="merge"><a href="user-detail.php?uid=20">riza</a></td>
+                    <td>Riza Wirianata</td>
+                    <td>driver</td>
+                    <td>Active</td>
+                    <td>19 May 2015 04:42 PM</td>
+                    <td><a href="20" class="delete-user">Delete</a></td>
+                  </tr>
+                                    <tr>
+                    <td>6</td>
+                    <td class="merge"><a href="user-detail.php?uid=22">hadezz</a></td>
+                    <td>Hans Sitorus</td>
+                    <td>driver</td>
+                    <td>Active</td>
+                    <td>14 Mar 2016 09:28 PM</td>
+                    <td><a href="22" class="delete-user">Delete</a></td>
+                  </tr>
+                                    <tr>
+                    <td>7</td>
+                    <td class="merge"><a href="user-detail.php?uid=23">aris</a></td>
+                    <td>Aris Setyoko</td>
+                    <td>driver</td>
+                    <td>Active</td>
+                    <td>02 Jun 2015 01:38 PM</td>
+                    <td><a href="23" class="delete-user">Delete</a></td>
+                  </tr>
+                                    <tr>
+                    <td>8</td>
+                    <td class="merge"><a href="user-detail.php?uid=26">aria</a></td>
+                    <td>Aria Taufik</td>
+                    <td>driver</td>
+                    <td>Active</td>
+                    <td>26 Dec 2015 02:25 PM</td>
+                    <td><a href="26" class="delete-user">Delete</a></td>
+                  </tr>
+                                  </table>
+			</section>
+        </section>
+    </section>
+
+		<footer class="footer">
+    	Copyright &copy; 2014 KJRI Sydney
+    </footer>    
+</body>
+</html>

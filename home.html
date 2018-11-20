@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>KJRI Fleet Management System | Home</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css" type="text/css" />
+    <script type="text/javascript" src="script/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+	
+	function cekAlert(msg)
+	{
+		if(msg == '2')
+			alert("Sukses check out. Terima kasih telah mengembalikan kendaraan.");
+	}
+	
+	 $(function() {
+	
+	/*
+		$('#check-out').click(function(){
+			alert('Thanks for returning the car.');	
+		});
+	*/
+		$('.popup').click(function(event) {
+			event.preventDefault();
+			window.open($(this).attr("href"), "popupWindow", "width=320,height=350,scrollbars=yes");
+		});
+		
+	 });
+	
+	</script>
+    
+</head>
+
+<body class="body" onLoad="cekAlert(0)">
+
+		<header class="main-header">
+    	<h1><a href="home.html">kjri sydney</a></h1>
+		<div class="title-description">Fleet Management System</div>
+        
+        <nav class="admin">
+        <ul>
+        	<li class='active'><a href="home.html">Home</a></li>
+            <li ><a href="car-used.html">In Use</a></li>
+			        	<li ><a href="input-car.html">Input Car</a></li>
+             <li ><a href="list-user.html">Manage User</a></li>
+             <li ><a href="create-user.html">Create User</a></li>
+           	 <li ><a href="report.html">Report</a></li>
+                    <li><a href="logout.html">Logout</a></li>
+        </ul>
+        </nav>
+    </header>    
+    <section class="main-content">
+    	<header class="page-title">
+        	<h2>Home</h2>
+        </header>
+        <section class="content">
+        	
+            Hello admin! <br />
+            
+                <table class="table-home" align="center">
+                  <tr>
+                    <th align="center" class="merge">Mobil</th>
+                    <th>Aksi</th>
+                  </tr>
+                  <td colspan='2' class='merge'>Tidak ada mobil yang tersedia</td>                </table>
+
+        </section>
+    </section>
+
+		<footer class="footer">
+    	Copyright &copy; 2014 KJRI Sydney
+    </footer>    
+</body>
+</html>

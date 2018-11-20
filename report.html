@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>KJRI Fleet Management System | Create User</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css" type="text/css" />
+    <link rel="stylesheet" href="style/jquery-ui.css" type="text/css" />
+	<script type="text/javascript" src="script/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="script/jquery-ui.js"></script>
+ 
+	<script type="text/javascript">
+	
+		
+		$(function() {
+			$( "#txtFrom" ).datepicker({
+				defaultDate: "0",
+				changeMonth: true,
+				numberOfMonths: 1,
+				dateFormat: "dd-mm-yy",
+				onClose: function( selectedDate ) {
+					$( "#txtTo" ).datepicker( "option", "minDate", selectedDate );
+				}
+			});
+
+			$( "#txtTo" ).datepicker({
+				defaultDate: "0",
+				changeMonth: true,
+				numberOfMonths: 1,
+				dateFormat: "dd-mm-yy",
+				onClose: function( selectedDate ) {
+					$( "#txtFrom" ).datepicker( "option", "maxDate", selectedDate );
+				}
+			});
+			
+			$('#error-container').hide();
+			
+			$('#formGenerateReport').submit(function(event){
+				
+				var from = $('#txtFrom').val();
+				var to = $('#txtTo').val();
+				
+				if(from == "" || to == "")
+				{
+					event.preventDefault();
+					$('#error-msg').html('All field must be filled!');
+					$('#error-container').fadeIn(500);
+				}
+				else
+				{
+					//alert('Generating the report...');
+				}
+				
+			});
+			
+					
+			$('.popup').click(function(event) {
+				event.preventDefault();
+				window.open($(this).attr("href"), "popupWindow", "width=320,height=350,scrollbars=yes");
+			});
+		
+		});
+		
+    </script>
+</head>
+
+<body class="body">
+
+		<header class="main-header">
+    	<h1><a href="home.html">kjri sydney</a></h1>
+		<div class="title-description">Fleet Management System</div>
+        
+        <nav class="admin">
+        <ul>
+        	<li ><a href="home.html">Home</a></li>
+            <li ><a href="car-used.html">In Use</a></li>
+			        	<li ><a href="input-car.hml">Input Car</a></li>
+             <li ><a href="list-user.html">Manage User</a></li>
+             <li ><a href="create-user.html">Create User</a></li>
+           	 <li class='active'><a href="report.html">Report</a></li>
+                    <li><a href="logout.html">Logout</a></li>
+        </ul>
+        </nav>
+    </header>    
+    <section class="main-content">
+    	<header class="page-title">
+        	<h2>Search Parameters</h2>
+        </header>
+        <section class="content">
+        
+            <form id="formGenerateReport" name="formGenerateReport" action="" method="get">
+            <table class="table-input" align="center">
+              <tr>
+                <td width="159">Jenis Mobil</td>
+                <td width="302">
+                	<select name="listJenis" id="listJenis" style="width:90%">
+                    	<option value="all">All</option>                 
+                    	<option value="MERCEDES E500">CC 2902 (MERCEDES E500)</option>
+                  
+                    	<option value="MERCEDES S320">CC 2190 (MERCEDES S320)</option>
+                  
+                    	<option value="TARAGO">CC 2805 (TARAGO)</option>
+                  
+                    	<option value="COMMUTER">CC 2601 (COMMUTER)</option>
+                  
+                    	<option value="CARAVELLE">CC 2603 (CARAVELLE)</option>
+                  
+                    	<option value="LEXUS ES300H">CC 2593 (LEXUS ES300H)</option>
+                  
+                    	<option value="MERCEDES C250">CC 2609 (MERCEDES C250)</option>
+                  
+                    	<option value="MERCEDEZ BENZ HUV">CC1234 (MERCEDEZ BENZ HUV)</option>
+                                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Driver<font color="#FF0000">&nbsp;</font></td>
+                <td>
+                <select name="listDriver" id="listDriver" style="width:90%;">
+                	<option value="0-all">All</option>
+                  
+                    <option value="1-admin">admin</option>
+                  
+                    <option value="6-Dmitri P. Sinambela">Dmitri P. Sinambela</option>
+                  
+                    <option value="7-Akbar Makarti">Akbar Makarti</option>
+                  
+                    <option value="8-Charles M. Sihombing">Charles M. Sihombing</option>
+                  
+                    <option value="20-Riza Wirianata">Riza Wirianata</option>
+                  
+                    <option value="22-Hans Sitorus">Hans Sitorus</option>
+                  
+                    <option value="23-Aris Setyoko">Aris Setyoko</option>
+                  
+                    <option value="26-Aria Taufik">Aria Taufik</option>
+                                </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Tanggal Pemakaian<font color="#FF0000">&nbsp;</font></td>
+                <td>from <input type="text" name="txtFrom" id="txtFrom" style="width:25%;"> to <input type="text" name="txtTo" id="txtTo" style="width:25%;"></td>
+              </tr>
+              <tr id="error-container">
+              	<td colspan="2" class="merge error-msg" id="error-msg">&nbsp;</td>
+              </tr>
+              <tr>
+                <td colspan="2" class="merge">
+                	<input type="reset" name="btnReset" id="btnReset" value="Reset"> &nbsp;
+                    <input type="submit" name="btnGenerate" id="btnGenerate" value="Generate Report">
+                </td>
+              </tr>
+              </table>
+              </form>
+              
+            <header class="page-title">
+            	<h2>Transaction History Report</h2>
+            </header>
+            
+            <section class="container">
+              <table class="table-report">
+                  <tr>
+                    <th width="30px">No.</th>
+                    <th width="150px">Mobil</th>
+                    <th width="120px">Check In</th>
+                    <th width="120px">Check Out</th>
+                    <th>Keterangan</th>
+                    <th width="70px">Driver</th>
+                    <th width="70px">Aksi</th>
+                  </tr>
+                  <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>                </table>
+        	</section>
+        </section>
+    </section>
+
+		<footer class="footer">
+    	Copyright &copy; 2014 KJRI Sydney
+    </footer>    
+</body>
+</html>

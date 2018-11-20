@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>KJRI Fleet Management System | Create User</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css" type="text/css" />
+    <link rel="stylesheet" href="style/jquery-ui.css" type="text/css" />
+	<script type="text/javascript" src="script/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="script/jquery-ui.js"></script>
+ 
+	<script type="text/javascript">
+	
+		function cekAlert(msg)
+		{
+			if(msg == '1')
+				alert("New user has been created successfully.");
+			else if(msg == '2')
+				alert("All field must be filled!");
+			else if(msg == '3')
+				alert("Passwords are not matched!");
+			else if(msg == '4')
+				alert("Username is not available!");
+		}
+	
+		$(function() {
+			$("#txtTanggal").datepicker({
+				changeMonth: true,
+				changeYear: true,
+				dateFormat: "dd-mm-yy",
+				maxDate: "-25Y"
+			});
+		});
+    </script>
+</head>
+
+<body class="body" onLoad="cekAlert(0)">
+
+		<header class="main-header">
+    	<h1><a href="home.html">kjri sydney</a></h1>
+		<div class="title-description">Fleet Management System</div>
+        
+        <nav class="admin">
+        <ul>
+        	<li ><a href="home.html">Home</a></li>
+            <li ><a href="car-used.html">In Use</a></li>
+			        	<li ><a href="input-car.html">Input Car</a></li>
+             <li ><a href="list-user.html">Manage User</a></li>
+             <li class='active'><a href="create-user.html">Create User</a></li>
+           	 <li ><a href="report.html">Report</a></li>
+                    <li><a href="logout.html">Logout</a></li>
+        </ul>
+        </nav>
+    </header>    
+    <section class="main-content">
+    	<header class="page-title">
+        	<h2>Create New User</h2>
+        </header>
+        <section class="content">
+        	
+            <form name="formCreateUser" action="process/do-create-user.php" method="post">
+            <table class="table-input" align="center">
+              <tr>
+                <td width="159">Full Name<font color="#FF0000"> *</font></td>
+                <td width="302"><label for="txtNama"></label>
+                  <input type="text" name="txtNama" id="txtNama"></td>
+              </tr>
+              <tr>
+                <td>Position <font color="#FF0000">*</font></td>
+                <td><label for="fileImg"></label>
+                  <input type="text" name="txtJabatan" id="txtJabatan"></td>
+              </tr>
+              <tr>
+                <td>Username <font color="#FF0000">*</font></td>
+                <td><input type="text" name="txtUsername" id="txtUsername"></td>
+              </tr>
+              <tr>
+                <td>Password  <font color="#FF0000">*</font></td>
+                <td><input type="password" name="txtPass1" id="txtPass1"></td>
+              </tr>
+              <tr>
+                <td>Re-type Password <font color="#FF0000">*</font></td>
+                <td><input type="password" name="txtPass2" id="txtPass2"></td>
+              </tr>
+              <tr>
+                <td>Role <font color="#FF0000">*</font></td>
+                <td><select name="listRole" id="listRole">
+                  <option value="admin">Administrator</option>
+                  <option value="driver">Driver</option>
+                </select></td>
+              </tr>
+              <tr>
+                <td colspan="2" class="merge"><input type="submit" name="btnCreate" id="btnCreate" value="Create">
+                </td>
+              </tr>
+              </table>
+              </form>
+        </section>
+    </section>
+
+		<footer class="footer">
+    	Copyright &copy; 2014 KJRI Sydney
+    </footer>    
+</body>
+</html>
